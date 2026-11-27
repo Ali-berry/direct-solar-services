@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Solar | Direct Solar Services</title>
+  <meta name="description" content="Discover the benefits of solar energy — lower bills, reduced carbon footprint, energy independence, and increased property value.">
+  <link rel="canonical" href="https://directsolarservices.co.uk/why-solar">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .why-hero {
+      padding: calc(var(--nav-height) + 64px) 0 64px;
+      text-align: center;
+      background: linear-gradient(to bottom, var(--bg-secondary), var(--bg));
+    }
+    .why-hero p {
+      max-width: 560px;
+      margin: 16px auto 0;
+      color: var(--text-muted);
+    }
+
+    /* Benefits grid */
+    .benefits { padding: 96px 0; }
+    .benefits__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .benefit-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius);
+      padding: 40px 32px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .benefit-card__icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      background: rgba(184, 243, 107, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .benefit-card__icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 1.5;
+    }
+    .benefit-card h3 { margin-bottom: 12px; }
+    .benefit-card p {
+      color: var(--text-muted);
+      line-height: 1.7;
+      font-size: 0.9375rem;
+    }
+
+    /* Process timeline */
+    .process { padding: 96px 0; background: var(--bg-secondary); }
+    .process__header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .process__header p {
+      max-width: 500px;
+      margin: 16px auto 0;
+      color: var(--text-muted);
+    }
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      position: relative;
+    }
+    /* Connecting line ke liye pseudo element */
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 36px;
+      left: 48px;
+      right: 48px;
+      height: 2px;
+      background: var(--border-glass);
+    }
+    .timeline-step {
+      text-align: center;
+      position: relative;
+    }
+    .timeline-step__number {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--glass-bg);
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent);
+      position: relative;
+      z-index: 1;
+    }
+    .timeline-step h4 {
+      margin-bottom: 8px;
+      font-size: 1.0625rem;
+    }
+    .timeline-step p {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+
+    /* Gallery */
+    .gallery { padding: 96px 0; }
+    .gallery__header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .gallery__header p {
+      max-width: 500px;
+      margin: 16px auto 0;
+      color: var(--text-muted);
+    }
+    .gallery__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .gallery__item {
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 3/2;
+    }
+    .gallery__item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--ease-out);
+    }
+    .gallery__item:hover img {
+      transform: scale(1.04);
+    }
+
+    @media (max-width: 768px) {
+      .benefits__grid { grid-template-columns: 1fr; }
+      .timeline {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .timeline::before {
+        top: 0; bottom: 0;
+        left: 35px; right: auto;
+        width: 2px; height: auto;
+      }
+      .timeline-step {
+        text-align: left;
+        padding-left: 96px;
+      }
+      .timeline-step__number {
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin: 0;
+      }
+      .gallery__grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .gallery__grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Direct Solar Services home">
+        <span class="nav__logo-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 12h3v8h14v-8h3L12 2zm-2 16v-6h4v6h-4z"/></svg></span>
+        Direct Solar
+      </a>
+      <div class="nav__links">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="solutions.html" class="nav__link">Solutions</a>
+        <a href="why-solar.html" class="nav__link active">Why Solar</a>
+        <a href="contact.html" class="nav__link">Contact</a>
+      </div>
+      <a href="contact.html" class="btn btn--primary btn--small nav__cta">Get a Free Quote</a>
+      <button class="nav__burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="nav__mobile-menu" aria-hidden="true">
+    <a href="index.html">Home</a><a href="solutions.html">Solutions</a><a href="why-solar.html">Why Solar</a><a href="contact.html">Contact</a>
+    <a href="contact.html" class="btn btn--primary" style="margin-top:16px;">Get a Free Quote</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="why-hero">
+    <div class="container" data-reveal>
+      <p class="eyebrow">Why Solar</p>
+      <h1 class="mt-4">Why switch to solar energy?</h1>
+      <p>Solar power gives you more control over your electricity, reduces your bills, and helps the environment — here's how.</p>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="benefits">
+    <div class="container">
+      <div class="benefits__grid" data-reveal-group>
+        <!-- Benefit 1 -->
+        <div class="benefit-card" data-reveal-card>
+          <div class="benefit-card__icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </div>
+          <h3>Use free sunlight</h3>
+          <p>The UK receives enough sunlight to power a solar system effectively for most of the year. Even on overcast days, your panels continue generating electricity — turning daylight into real energy savings.</p>
+        </div>
+        <!-- Benefit 2 -->
+        <div class="benefit-card" data-reveal-card>
+          <div class="benefit-card__icon">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3>Lower your electricity bills</h3>
+          <p>Generate your own power and rely less on the grid. With rising energy costs, a solar system can make a noticeable difference to your monthly bills from the day it's switched on.</p>
+        </div>
+        <!-- Benefit 3 -->
+        <div class="benefit-card" data-reveal-card>
+          <div class="benefit-card__icon">
+            <svg viewBox="0 0 24 24"><rect x="1" y="6" width="22" height="12" rx="2" ry="2"/><line x1="23" y1="13" x2="23" y2="11"/><line x1="6" y1="10" x2="6" y2="14"/><line x1="10" y1="10" x2="10" y2="14"/><line x1="14" y1="10" x2="14" y2="14"/></svg>
+          </div>
+          <h3>Store energy for later</h3>
+          <p>With a battery, surplus electricity generated during the day is stored for use in the evening or overnight — so less of what your panels produce goes to waste.</p>
+        </div>
+        <!-- Benefit 4 -->
+        <div class="benefit-card" data-reveal-card>
+          <div class="benefit-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3>Add value to your property</h3>
+          <p>Homes with solar installations are increasingly attractive to buyers. A well-installed solar system is a long-term asset that can contribute to the value of your property.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="process" id="process">
+    <div class="container">
+      <div class="process__header" data-reveal>
+        <p class="eyebrow">How It Works</p>
+        <h2 class="mt-4">From enquiry to installation.</h2>
+        <p>A straightforward process designed to get your solar system up and running with minimal disruption.</p>
+      </div>
+      <div class="timeline" data-reveal-group>
+        <div class="timeline-step" data-reveal-card>
+          <div class="timeline-step__number">1</div>
+          <h4>Get in touch</h4>
+          <p>Contact us for a no-obligation conversation about your property and energy requirements.</p>
+        </div>
+        <div class="timeline-step" data-reveal-card>
+          <div class="timeline-step__number">2</div>
+          <h4>Site survey</h4>
+          <p>We visit your property to assess the roof, orientation, shading, and energy usage to design the right system.</p>
+        </div>
+        <div class="timeline-step" data-reveal-card>
+          <div class="timeline-step__number">3</div>
+          <h4>System design</h4>
+          <p>Based on the survey, we recommend a system configuration tailored to your property and consumption patterns.</p>
+        </div>
+        <div class="timeline-step" data-reveal-card>
+          <div class="timeline-step__number">4</div>
+          <h4>Installation</h4>
+          <p>Our team installs the system, handles grid connection paperwork, and ensures everything is working before handover.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery">
+    <div class="container">
+      <div class="gallery__header" data-reveal>
+        <p class="eyebrow">Our Work</p>
+        <h2 class="mt-4">Recent installations.</h2>
+        <p>A selection of domestic and commercial solar installations we've completed.</p>
+      </div>
+      <div class="gallery__grid" data-reveal-group>
+        <div class="gallery__item" data-reveal-card><img src="assets/images/gallery-1.jpg" alt="Completed solar panel installation on a residential property" width="450" height="300" loading="lazy"></div>
+        <div class="gallery__item" data-reveal-card><img src="assets/images/gallery-2.jpg" alt="Solar panels installed on a detached house roof" width="450" height="300" loading="lazy"></div>
+        <div class="gallery__item" data-reveal-card><img src="assets/images/gallery-3.jpg" alt="Close-up view of solar panel array on a modern home" width="450" height="300" loading="lazy"></div>
+        <div class="gallery__item" data-reveal-card><img src="assets/images/gallery-4.jpg" alt="Commercial solar installation on a flat warehouse roof" width="450" height="300" loading="lazy"></div>
+        <div class="gallery__item" data-reveal-card><img src="assets/images/gallery-5.jpg" alt="Solar panel installation in progress by our team" width="450" height="300" loading="lazy"></div>
+        <div class="gallery__item" data-reveal-card><img src="assets/images/gallery-6.jpg" alt="Finished solar setup on a semi-detached home" width="450" height="300" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band" data-reveal>
+    <div class="container">
+      <h2>Ready to explore solar?</h2>
+      <p>Get in touch for a free, no-obligation quote tailored to your property.</p>
+      <a href="contact.html" class="btn btn--primary">Get Your Free Quote</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="nav__logo"><span class="nav__logo-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 12h3v8h14v-8h3L12 2zm-2 16v-6h4v6h-4z"/></svg></span>Direct Solar</a>
+          <p>Domestic and commercial solar panel installation, battery storage, and maintenance services.</p>
+        </div>
+        <div>
+          <h4 class="footer__heading">Solutions</h4>
+          <a href="solutions.html#domestic" class="footer__link">Domestic Solar</a>
+          <a href="solutions.html#battery" class="footer__link">Battery Storage</a>
+          <a href="solutions.html#commercial" class="footer__link">Commercial Solar</a>
+          <a href="solutions.html#maintenance" class="footer__link">Maintenance &amp; Repair</a>
+        </div>
+        <div>
+          <h4 class="footer__heading">Company</h4>
+          <a href="why-solar.html" class="footer__link">Why Solar</a>
+          <a href="why-solar.html#process" class="footer__link">Our Process</a>
+          <a href="contact.html" class="footer__link">Contact</a>
+          <a href="contact.html#faq" class="footer__link">FAQ</a>
+        </div>
+        <div>
+          <h4 class="footer__heading">Get in Touch</h4>
+          <a href="tel:03332408434" class="footer__link">0333 240 8434</a>
+          <a href="mailto:info@directsolarservices.co.uk" class="footer__link">info@directsolarservices.co.uk</a>
+          <a href="mailto:Sales@directsolarservices.co.uk" class="footer__link">Sales@directsolarservices.co.uk</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2024 Direct Solar Services Ltd. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> &middot; <a href="#">Terms</a></p>
+      </div>
+      <p class="footer__concept">This is an unofficial website redesign concept created by Elevate Web Studio for portfolio and outreach purposes. Not a commissioned project.</p>
+    </div>
+  </footer>
+
+  <!-- CHATBOT -->
+  <button class="chatbot-fab" aria-label="Open chat assistant" aria-expanded="false">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+  </button>
+  <div class="chatbot-window" role="dialog" aria-label="Direct Solar Assistant">
+    <div class="chatbot-header"><div class="chatbot-header__avatar"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></div><div class="chatbot-header__info"><h4>Direct Solar Assistant</h4><p>Online</p></div></div>
+    <div class="chatbot-messages"><div class="chatbot-msg chatbot-msg--bot">Hi! Welcome to Direct Solar Services. How can I help you explore solar solutions?</div></div>
+    <div class="chatbot-quick-replies">
+      <button class="chatbot-quick-reply">I'm interested in solar panels.</button><button class="chatbot-quick-reply">I want battery storage.</button><button class="chatbot-quick-reply">I need solar repairs.</button><button class="chatbot-quick-reply">I have a question about commercial solar.</button>
+    </div>
+    <div class="chatbot-input-wrap"><input type="text" class="chatbot-input" placeholder="Type a message..." aria-label="Chat message"><button class="chatbot-send" aria-label="Send message"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

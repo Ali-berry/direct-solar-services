@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Direct Solar Services | Solar Panel Installation &amp; Battery Storage</title>
+  <meta name="description" content="Direct Solar Services Ltd — domestic and commercial solar panel installation, battery storage, and maintenance across the UK.">
+  <link rel="canonical" href="https://directsolarservices.co.uk/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Hero scroll-scrub ke liye extra styles -->
+  <style>
+    /* --- Scroll-Scrub Hero --- */
+    .hero {
+      position: relative;
+      height: 300vh; /* Scroll distance for scrub */
+      background: var(--bg);
+    }
+
+    .hero__sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero__video-wrap {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .hero__video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      will-change: auto;
+    }
+
+    .hero__poster {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: url('assets/images/hero-poster.jpg') center/cover no-repeat;
+      transition: opacity 0.5s ease;
+    }
+
+    .hero__poster.loaded {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(8,13,11,0.3) 0%,
+        rgba(8,13,11,0.5) 50%,
+        rgba(8,13,11,0.8) 100%
+      );
+      z-index: 3;
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 4;
+      max-width: 800px;
+      padding: 0 24px;
+      text-align: center;
+    }
+
+    .hero__text-block {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      max-width: 800px;
+      padding: 0 24px;
+      text-align: center;
+      opacity: 0;
+      z-index: 4;
+    }
+
+    .hero__text-block.active {
+      opacity: 1;
+    }
+
+    .hero__eyebrow {
+      margin-bottom: 16px;
+    }
+
+    .hero__headline {
+      margin-bottom: 16px;
+    }
+
+    .hero__subline {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero__nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 48px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .hero__nav a {
+      color: var(--text-muted);
+      transition: color var(--dur-fast);
+    }
+
+    .hero__nav a:hover {
+      color: var(--accent);
+    }
+
+    /* --- Why Solar Teaser --- */
+    .why-teaser {
+      padding: 96px 0;
+    }
+
+    .why-teaser__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    .why-teaser__item {
+      padding: 32px;
+      border-radius: var(--radius);
+      background: var(--glass-bg-light);
+      border: 1px solid var(--border-glass);
+      transition: border-color var(--dur-fast) var(--ease-out);
+    }
+
+    .why-teaser__item:hover {
+      border-color: rgba(184,243,107,0.2);
+    }
+
+    .why-teaser__icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      background: rgba(184,243,107,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .why-teaser__icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .why-teaser__item h3 {
+      margin-bottom: 8px;
+    }
+
+    .why-teaser__item p {
+      color: var(--text-muted);
+      font-size: 0.9375rem;
+      margin-bottom: 16px;
+    }
+
+    .why-teaser__item a {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: gap var(--dur-fast) var(--ease-out);
+    }
+
+    .why-teaser__item a:hover {
+      gap: 8px;
+    }
+
+    /* --- Services Teaser --- */
+    .services-teaser {
+      padding: 96px 0;
+      background: var(--bg-secondary);
+    }
+
+    .services-teaser__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    .service-tile {
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--glass-bg);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border-glass);
+      transition: transform var(--dur-fast) var(--ease-out),
+                  border-color var(--dur-fast) var(--ease-out);
+    }
+
+    .service-tile:hover {
+      transform: translateY(-4px);
+      border-color: rgba(184,243,107,0.2);
+    }
+
+    .service-tile__img {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+    }
+
+    .service-tile__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--dur-slow) var(--ease-out);
+    }
+
+    .service-tile:hover .service-tile__img img {
+      transform: scale(1.05);
+    }
+
+    .service-tile__body {
+      padding: 20px;
+    }
+
+    .service-tile__number {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .service-tile h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .service-tile p {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    .service-tile a {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    @media (max-width: 1024px) {
+      .services-teaser__grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .hero__nav { display: none; }
+      .why-teaser__grid { grid-template-columns: 1fr; }
+      .services-teaser__grid { grid-template-columns: 1fr; }
+    }
+
+    /* Reduced motion: hero video normal autoplay */
+    @media (prefers-reduced-motion: reduce) {
+      .hero { height: auto; }
+      .hero__sticky { position: relative; }
+      .hero__text-block { opacity: 1 !important; position: relative; left: auto; top: auto; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Direct Solar Services home">
+        <span class="nav__logo-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 12h3v8h14v-8h3L12 2zm-2 16v-6h4v6h-4z"/></svg>
+        </span>
+        Direct Solar
+      </a>
+
+      <div class="nav__links">
+        <a href="index.html" class="nav__link active">Home</a>
+        <a href="solutions.html" class="nav__link">Solutions</a>
+        <a href="why-solar.html" class="nav__link">Why Solar</a>
+        <a href="contact.html" class="nav__link">Contact</a>
+      </div>
+
+      <a href="contact.html" class="btn btn--primary btn--small nav__cta">Get a Free Quote</a>
+
+      <button class="nav__burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="nav__mobile-menu" aria-hidden="true">
+    <a href="index.html">Home</a>
+    <a href="solutions.html">Solutions</a>
+    <a href="why-solar.html">Why Solar</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="btn btn--primary" style="margin-top:16px;">Get a Free Quote</a>
+  </div>
+
+  <!-- ===== SCROLL-SCRUB HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero__sticky">
+      <div class="hero__video-wrap">
+        <div class="hero__poster" id="heroPoster"></div>
+        <video
+          class="hero__video"
+          id="heroVideo"
+          src="assets/videos/hero-solar.mp4"
+          muted
+          playsinline
+          preload="auto"
+          poster="assets/images/hero-poster.jpg"
+          aria-hidden="true"
+        ></video>
+      </div>
+      <div class="hero__overlay"></div>
+
+      <!-- Text blocks — har ek scroll position pe dikhega -->
+      <div class="hero__text-block" id="heroText1">
+        <p class="eyebrow hero__eyebrow">Direct Solar Services</p>
+        <h1 class="text-hero hero__headline">Energy that works<br>for your property.</h1>
+      </div>
+
+      <div class="hero__text-block" id="heroText2">
+        <p class="hero__subline" style="font-size:clamp(1.125rem,2.5vw,1.5rem);max-width:600px;margin:0 auto;">Solar panel systems designed around your property, your energy needs, and how you use power.</p>
+      </div>
+
+      <div class="hero__text-block" id="heroText3">
+        <p class="hero__subline" style="font-size:clamp(1rem,2vw,1.25rem);max-width:500px;margin:0 auto;">Trusted installations. Real expertise. A team that's with you from first enquiry to final handover.</p>
+      </div>
+
+      <div class="hero__text-block" id="heroText4">
+        <a href="contact.html" class="btn btn--primary" style="font-size:1rem;padding:18px 48px;">GET A FREE QUOTE</a>
+        <div class="hero__nav">
+          <a href="solutions.html">Solutions</a>
+          <a href="why-solar.html">Why Solar</a>
+          <a href="why-solar.html#process">Our Process</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY SOLAR TEASER ===== -->
+  <section class="why-teaser section" id="why-solar-teaser">
+    <div class="container">
+      <div class="text-center" data-reveal>
+        <p class="eyebrow">Why Solar</p>
+        <h2 class="mt-4">A smarter approach to energy.</h2>
+        <p class="text-muted mt-4" style="max-width:520px;margin-left:auto;margin-right:auto;">
+          Solar energy offers a way to generate electricity from your own roof — reducing reliance on the grid and giving you more control over your energy use.
+        </p>
+      </div>
+
+      <div class="why-teaser__grid" data-reveal-group>
+        <div class="why-teaser__item" data-reveal-card>
+          <div class="why-teaser__icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </div>
+          <h3>Generate Your Own Power</h3>
+          <p>Solar panels convert sunlight into electricity you can use directly in your home or business.</p>
+          <a href="why-solar.html">Learn more <span aria-hidden="true">→</span></a>
+        </div>
+
+        <div class="why-teaser__item" data-reveal-card>
+          <div class="why-teaser__icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="6" width="18" height="12" rx="2"/><line x1="23" y1="13" x2="23" y2="11"/><rect x="5" y="10" width="10" height="4" rx="1"/></svg>
+          </div>
+          <h3>Store Surplus Energy</h3>
+          <p>Battery systems let you hold onto the energy your panels generate and use it when you need it most.</p>
+          <a href="why-solar.html">Learn more <span aria-hidden="true">→</span></a>
+        </div>
+
+        <div class="why-teaser__item" data-reveal-card>
+          <div class="why-teaser__icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3>A More Conscious Home</h3>
+          <p>Making use of renewable energy is a step towards a more energy-conscious household.</p>
+          <a href="why-solar.html">Learn more <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES TEASER ===== -->
+  <section class="services-teaser section" id="services-teaser">
+    <div class="container">
+      <div class="text-center" data-reveal>
+        <p class="eyebrow">Our Solutions</p>
+        <h2 class="mt-4">What we do.</h2>
+        <p class="text-muted mt-4" style="max-width:520px;margin-left:auto;margin-right:auto;">
+          From domestic installations to commercial projects, we provide end-to-end solar solutions tailored to your requirements.
+        </p>
+      </div>
+
+      <div class="services-teaser__grid" data-reveal-group>
+        <a href="solutions.html#domestic" class="service-tile" data-reveal-card>
+          <div class="service-tile__img">
+            <img src="assets/images/benefit-sunlight.jpg" alt="Sunlight powering a domestic solar installation" loading="lazy" width="600" height="450">
+          </div>
+          <div class="service-tile__body">
+            <p class="service-tile__number">01</p>
+            <h3>Domestic Solar</h3>
+            <p>Solar panel systems designed for your home and energy needs.</p>
+            <span class="text-accent" style="font-size:0.8125rem;font-weight:600;">Explore →</span>
+          </div>
+        </a>
+
+        <a href="solutions.html#battery" class="service-tile" data-reveal-card>
+          <div class="service-tile__img">
+            <img src="assets/images/benefit-battery.jpg" alt="Battery storage for solar energy" loading="lazy" width="600" height="450">
+          </div>
+          <div class="service-tile__body">
+            <p class="service-tile__number">02</p>
+            <h3>Battery Storage</h3>
+            <p>Store surplus energy for more flexible use throughout the day.</p>
+            <span class="text-accent" style="font-size:0.8125rem;font-weight:600;">Explore →</span>
+          </div>
+        </a>
+
+        <a href="solutions.html#commercial" class="service-tile" data-reveal-card>
+          <div class="service-tile__img">
+            <img src="assets/images/benefit-savings.jpg" alt="Solar energy savings for commercial properties" loading="lazy" width="600" height="450">
+          </div>
+          <div class="service-tile__body">
+            <p class="service-tile__number">03</p>
+            <h3>Commercial Solar</h3>
+            <p>Solar solutions for businesses looking to manage energy differently.</p>
+            <span class="text-accent" style="font-size:0.8125rem;font-weight:600;">Explore →</span>
+          </div>
+        </a>
+
+        <a href="solutions.html#maintenance" class="service-tile" data-reveal-card>
+          <div class="service-tile__img">
+            <img src="assets/images/benefit-home.jpg" alt="Home solar maintenance and care" loading="lazy" width="600" height="450">
+          </div>
+          <div class="service-tile__body">
+            <p class="service-tile__number">04</p>
+            <h3>Maintenance &amp; Repair</h3>
+            <p>Keep your solar system performing as intended with ongoing care.</p>
+            <span class="text-accent" style="font-size:0.8125rem;font-weight:600;">Explore →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA BAND ===== -->
+  <section class="cta-band" data-reveal>
+    <div class="container">
+      <h2>Ready to explore solar?</h2>
+      <p>Get in touch for a free, no-obligation quote on the right solar solution for your property.</p>
+      <a href="contact.html" class="btn btn--primary">Get Your Free Quote</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="nav__logo">
+            <span class="nav__logo-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 12h3v8h14v-8h3L12 2zm-2 16v-6h4v6h-4z"/></svg>
+            </span>
+            Direct Solar
+          </a>
+          <p>Domestic and commercial solar panel installation, battery storage, and maintenance services.</p>
+        </div>
+        <div>
+          <h4 class="footer__heading">Solutions</h4>
+          <a href="solutions.html#domestic" class="footer__link">Domestic Solar</a>
+          <a href="solutions.html#battery" class="footer__link">Battery Storage</a>
+          <a href="solutions.html#commercial" class="footer__link">Commercial Solar</a>
+          <a href="solutions.html#maintenance" class="footer__link">Maintenance &amp; Repair</a>
+        </div>
+        <div>
+          <h4 class="footer__heading">Company</h4>
+          <a href="why-solar.html" class="footer__link">Why Solar</a>
+          <a href="why-solar.html#process" class="footer__link">Our Process</a>
+          <a href="contact.html" class="footer__link">Contact</a>
+          <a href="contact.html#faq" class="footer__link">FAQ</a>
+        </div>
+        <div>
+          <h4 class="footer__heading">Get in Touch</h4>
+          <a href="tel:03332408434" class="footer__link">0333 240 8434</a>
+          <a href="mailto:info@directsolarservices.co.uk" class="footer__link">info@directsolarservices.co.uk</a>
+          <a href="mailto:Sales@directsolarservices.co.uk" class="footer__link">Sales@directsolarservices.co.uk</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2024 Direct Solar Services Ltd. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> &middot; <a href="#">Terms</a></p>
+      </div>
+      <p class="footer__concept">This is an unofficial website redesign concept created by Elevate Web Studio for portfolio and outreach purposes. Not a commissioned project.</p>
+    </div>
+  </footer>
+
+  <!-- ===== CHATBOT ===== -->
+  <button class="chatbot-fab" aria-label="Open chat assistant" aria-expanded="false">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+      <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+    </svg>
+  </button>
+
+  <div class="chatbot-window" role="dialog" aria-label="Direct Solar Assistant">
+    <div class="chatbot-header">
+      <div class="chatbot-header__avatar">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+      </div>
+      <div class="chatbot-header__info">
+        <h4>Direct Solar Assistant</h4>
+        <p>Online</p>
+      </div>
+    </div>
+    <div class="chatbot-messages">
+      <div class="chatbot-msg chatbot-msg--bot">Hi! Welcome to Direct Solar Services. How can I help you explore solar solutions?</div>
+    </div>
+    <div class="chatbot-quick-replies">
+      <button class="chatbot-quick-reply">I'm interested in solar panels.</button>
+      <button class="chatbot-quick-reply">I want battery storage.</button>
+      <button class="chatbot-quick-reply">I need solar repairs.</button>
+      <button class="chatbot-quick-reply">I have a question about commercial solar.</button>
+    </div>
+    <div class="chatbot-input-wrap">
+      <input type="text" class="chatbot-input" placeholder="Type a message..." aria-label="Chat message">
+      <button class="chatbot-send" aria-label="Send message">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Hero Scroll-Scrub Script -->
+  <script>
+    (function initHeroScrub() {
+      const video = document.getElementById('heroVideo');
+      const poster = document.getElementById('heroPoster');
+      const heroSection = document.getElementById('hero');
+
+      if (!video || !heroSection) return;
+
+      // Reduced motion check — agar reduce hai to normal autoplay
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        video.autoplay = true;
+        video.loop = true;
+        video.play().catch(() => {});
+        // Sab text blocks visible
+        document.querySelectorAll('.hero__text-block').forEach(el => { el.style.opacity = '1'; });
+        if (poster) poster.classList.add('loaded');
+        return;
+      }
+
+      // Video ready hone ka wait karo
+      function onVideoReady() {
+        if (poster) poster.classList.add('loaded');
+        setupScrollScrub();
+      }
+
+      if (video.readyState >= 2) {
+        onVideoReady();
+      } else {
+        video.addEventListener('canplay', onVideoReady, { once: true });
+        video.addEventListener('loadedmetadata', () => {
+          // iOS ke liye — force load
+          video.currentTime = 0.01;
+        }, { once: true });
+      }
+
+      function setupScrollScrub() {
+        // GSAP load hone ka wait
+        function waitGSAP(cb) {
+          if (window.gsap && window.ScrollTrigger) return cb();
+          const i = setInterval(() => {
+            if (window.gsap && window.ScrollTrigger) { clearInterval(i); cb(); }
+          }, 50);
+        }
+
+        waitGSAP(() => {
+          gsap.registerPlugin(ScrollTrigger);
+
+          const duration = video.duration || 10;
+          let currentFrame = 0;
+
+          // Video currentTime ko scroll se drive karo
+          // rAF throttle ke saath smooth performance ke liye
+          let rafId = null;
+          function setVideoTime(time) {
+            if (rafId) cancelAnimationFrame(rafId);
+            rafId = requestAnimationFrame(() => {
+              video.currentTime = time;
+              rafId = null;
+            });
+          }
+
+          ScrollTrigger.create({
+            trigger: heroSection,
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: true,
+            onUpdate: (self) => {
+              const progress = self.progress;
+              setVideoTime(progress * duration);
+
+              // Text blocks toggle — 4 segments
+              const texts = [
+                document.getElementById('heroText1'),
+                document.getElementById('heroText2'),
+                document.getElementById('heroText3'),
+                document.getElementById('heroText4')
+              ];
+
+              texts.forEach((el, i) => {
+                if (!el) return;
+                const segStart = i * 0.25;
+                const segEnd = (i + 1) * 0.25;
+                const fadeIn = segStart + 0.02;
+                const fadeOut = segEnd - 0.02;
+
+                if (progress >= fadeIn && progress <= fadeOut) {
+                  // Segment ke andar — fade in
+                  const localProgress = (progress - fadeIn) / (fadeOut - fadeIn);
+                  const fadeInEnd = 0.2;
+                  const fadeOutStart = 0.8;
+
+                  if (localProgress < fadeInEnd) {
+                    el.style.opacity = localProgress / fadeInEnd;
+                    el.style.transform = `translate(-50%, ${-50 + (1 - localProgress/fadeInEnd) * 10}%)`;
+                  } else if (localProgress > fadeOutStart) {
+                    el.style.opacity = 1 - ((localProgress - fadeOutStart) / (1 - fadeOutStart));
+                    el.style.transform = `translate(-50%, ${-50 - ((localProgress - fadeOutStart) / (1 - fadeOutStart)) * 5}%)`;
+                  } else {
+                    el.style.opacity = 1;
+                    el.style.transform = 'translate(-50%, -50%)';
+                  }
+                } else {
+                  el.style.opacity = 0;
+                }
+              });
+            }
+          });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

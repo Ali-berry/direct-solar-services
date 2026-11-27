@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solar Solutions | Direct Solar Services</title>
+  <meta name="description" content="Explore our full range of solar solutions — domestic installation, battery storage, commercial solar, and maintenance services.">
+  <link rel="canonical" href="https://directsolarservices.co.uk/solutions">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .solutions-hero {
+      padding: calc(var(--nav-height) + 64px) 0 64px;
+      text-align: center;
+      background: linear-gradient(to bottom, var(--bg-secondary), var(--bg));
+    }
+    .solutions-hero p {
+      max-width: 560px;
+      margin: 16px auto 0;
+      color: var(--text-muted);
+    }
+
+    .service-block {
+      padding: 96px 0;
+      border-bottom: 1px solid var(--border-glass);
+    }
+    .service-block:last-of-type {
+      border-bottom: none;
+    }
+    .service-block__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .service-block:nth-child(even) .service-block__inner {
+      direction: rtl;
+    }
+    .service-block:nth-child(even) .service-block__inner > * {
+      direction: ltr;
+    }
+    .service-block__img {
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+    .service-block__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .service-block__content .eyebrow {
+      margin-bottom: 12px;
+    }
+    .service-block__content h2 {
+      margin-bottom: 16px;
+    }
+    .service-block__content > p {
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      font-size: 1.0625rem;
+      line-height: 1.7;
+    }
+    .service-block__list {
+      margin-bottom: 32px;
+    }
+    .service-block__list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-glass);
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+    }
+    .service-block__list li:last-child {
+      border-bottom: none;
+    }
+    .service-block__list li svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 2;
+    }
+
+    @media (max-width: 768px) {
+      .service-block__inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .service-block:nth-child(even) .service-block__inner {
+        direction: ltr;
+      }
+      .service-block { padding: 64px 0; }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Direct Solar Services home">
+        <span class="nav__logo-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 12h3v8h14v-8h3L12 2zm-2 16v-6h4v6h-4z"/></svg></span>
+        Direct Solar
+      </a>
+      <div class="nav__links">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="solutions.html" class="nav__link active">Solutions</a>
+        <a href="why-solar.html" class="nav__link">Why Solar</a>
+        <a href="contact.html" class="nav__link">Contact</a>
+      </div>
+      <a href="contact.html" class="btn btn--primary btn--small nav__cta">Get a Free Quote</a>
+      <button class="nav__burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="nav__mobile-menu" aria-hidden="true">
+    <a href="index.html">Home</a><a href="solutions.html">Solutions</a><a href="why-solar.html">Why Solar</a><a href="contact.html">Contact</a>
+    <a href="contact.html" class="btn btn--primary" style="margin-top:16px;">Get a Free Quote</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="solutions-hero">
+    <div class="container" data-reveal>
+      <p class="eyebrow">Our Solutions</p>
+      <h1 class="mt-4">Solar solutions for every property.</h1>
+      <p>From residential installations to large-scale commercial projects, we design and deliver solar systems that suit your requirements.</p>
+    </div>
+  </section>
+
+  <!-- SERVICE 1: DOMESTIC -->
+  <section class="service-block" id="domestic">
+    <div class="container">
+      <div class="service-block__inner">
+        <div class="service-block__img" data-reveal>
+          <img src="assets/images/solution-domestic.jpg" alt="Modern UK home with solar panels installed on the roof" width="600" height="450" loading="lazy">
+        </div>
+        <div class="service-block__content" data-reveal>
+          <p class="eyebrow">01 — Domestic</p>
+          <h2>Domestic Solar Installation</h2>
+          <p>Generate your own electricity with a solar panel system designed around your property and energy needs.</p>
+          <ul class="service-block__list">
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Site survey and system design tailored to your roof and usage</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Supply and installation of solar panels and inverter</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Grid connection and certification paperwork handled</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Post-installation guidance and monitoring setup</li>
+          </ul>
+          <a href="contact.html" class="btn btn--primary">Explore service →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE 2: BATTERY -->
+  <section class="service-block" id="battery">
+    <div class="container">
+      <div class="service-block__inner">
+        <div class="service-block__img" data-reveal>
+          <img src="assets/images/solution-battery.jpg" alt="Solar battery storage unit installed in a clean utility space" width="600" height="450" loading="lazy">
+        </div>
+        <div class="service-block__content" data-reveal>
+          <p class="eyebrow">02 — Storage</p>
+          <h2>Solar Battery Storage</h2>
+          <p>Store surplus energy and make more flexible use of the electricity your solar system generates.</p>
+          <ul class="service-block__list">
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Battery system sized to match your solar generation and usage</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Compatible with new and existing solar installations</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Smart energy management and monitoring capability</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Professional installation with minimal disruption</li>
+          </ul>
+          <a href="contact.html" class="btn btn--primary">Explore service →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE 3: COMMERCIAL -->
+  <section class="service-block" id="commercial">
+    <div class="container">
+      <div class="service-block__inner">
+        <div class="service-block__img" data-reveal>
+          <img src="assets/images/solution-commercial.jpg" alt="Commercial warehouse rooftop with solar panel array" width="600" height="450" loading="lazy">
+        </div>
+        <div class="service-block__content" data-reveal>
+          <p class="eyebrow">03 — Commercial</p>
+          <h2>Commercial Solar</h2>
+          <p>Explore solar solutions for businesses looking to make better use of their energy.</p>
+          <ul class="service-block__list">
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Energy assessment and system sizing for commercial premises</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Project management from planning to commissioning</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Scalable systems to suit different building types</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Ongoing maintenance and performance monitoring options</li>
+          </ul>
+          <a href="contact.html" class="btn btn--primary">Explore service →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE 4: MAINTENANCE -->
+  <section class="service-block" id="maintenance">
+    <div class="container">
+      <div class="service-block__inner">
+        <div class="service-block__img" data-reveal>
+          <img src="assets/images/solution-maintenance.jpg" alt="Technician performing solar panel maintenance on a rooftop" width="600" height="450" loading="lazy">
+        </div>
+        <div class="service-block__content" data-reveal>
+          <p class="eyebrow">04 — Maintenance</p>
+          <h2>Maintenance &amp; Repair</h2>
+          <p>Keep your solar system performing as intended with maintenance and repair services.</p>
+          <ul class="service-block__list">
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Routine inspection and cleaning of panels and components</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Fault diagnosis and repair for inverters and wiring</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Performance checks and system health reporting</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Planned maintenance agreements available</li>
+          </ul>
+          <a href="contact.html" class="btn btn--primary">Explore service →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band" data-reveal>
+    <div class="container">
+      <h2>Not sure which solution is right?</h2>
+      <p>Tell us about your property and requirements — we'll help you explore the options.</p>
+      <a href="contact.html" class="btn btn--primary">Get Your Free Quote</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="nav__logo"><span class="nav__logo-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 12h3v8h14v-8h3L12 2zm-2 16v-6h4v6h-4z"/></svg></span>Direct Solar</a>
+          <p>Domestic and commercial solar panel installation, battery storage, and maintenance services.</p>
+        </div>
+        <div>
+          <h4 class="footer__heading">Solutions</h4>
+          <a href="solutions.html#domestic" class="footer__link">Domestic Solar</a>
+          <a href="solutions.html#battery" class="footer__link">Battery Storage</a>
+          <a href="solutions.html#commercial" class="footer__link">Commercial Solar</a>
+          <a href="solutions.html#maintenance" class="footer__link">Maintenance &amp; Repair</a>
+        </div>
+        <div>
+          <h4 class="footer__heading">Company</h4>
+          <a href="why-solar.html" class="footer__link">Why Solar</a>
+          <a href="why-solar.html#process" class="footer__link">Our Process</a>
+          <a href="contact.html" class="footer__link">Contact</a>
+          <a href="contact.html#faq" class="footer__link">FAQ</a>
+        </div>
+        <div>
+          <h4 class="footer__heading">Get in Touch</h4>
+          <a href="tel:03332408434" class="footer__link">0333 240 8434</a>
+          <a href="mailto:info@directsolarservices.co.uk" class="footer__link">info@directsolarservices.co.uk</a>
+          <a href="mailto:Sales@directsolarservices.co.uk" class="footer__link">Sales@directsolarservices.co.uk</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2024 Direct Solar Services Ltd. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> &middot; <a href="#">Terms</a></p>
+      </div>
+      <p class="footer__concept">This is an unofficial website redesign concept created by Elevate Web Studio for portfolio and outreach purposes. Not a commissioned project.</p>
+    </div>
+  </footer>
+
+  <!-- CHATBOT -->
+  <button class="chatbot-fab" aria-label="Open chat assistant" aria-expanded="false">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+  </button>
+  <div class="chatbot-window" role="dialog" aria-label="Direct Solar Assistant">
+    <div class="chatbot-header"><div class="chatbot-header__avatar"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></div><div class="chatbot-header__info"><h4>Direct Solar Assistant</h4><p>Online</p></div></div>
+    <div class="chatbot-messages"><div class="chatbot-msg chatbot-msg--bot">Hi! Welcome to Direct Solar Services. How can I help you explore solar solutions?</div></div>
+    <div class="chatbot-quick-replies">
+      <button class="chatbot-quick-reply">I'm interested in solar panels.</button><button class="chatbot-quick-reply">I want battery storage.</button><button class="chatbot-quick-reply">I need solar repairs.</button><button class="chatbot-quick-reply">I have a question about commercial solar.</button>
+    </div>
+    <div class="chatbot-input-wrap"><input type="text" class="chatbot-input" placeholder="Type a message..." aria-label="Chat message"><button class="chatbot-send" aria-label="Send message"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
